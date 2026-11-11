@@ -702,7 +702,58 @@ header {
     width: 100%;
   }
 }
+/* TOP CONTACT BAR */
 
+.top-contact-bar {
+  background: var(--navy);
+  color: #ffffff;
+  font-size: 13px;
+}
+
+.top-contact-inner {
+  min-height: 38px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+}
+
+.top-contact-left {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.top-contact-bar a {
+  color: #ffffff;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.top-contact-bar a:hover {
+  color: #bfe6ff;
+}
+
+.top-contact-right {
+  color: #dceeff;
+}
+
+@media (max-width: 600px) {
+  .top-contact-inner {
+    justify-content: center;
+    padding: 9px 0;
+  }
+
+  .top-contact-left {
+    justify-content: center;
+    gap: 12px;
+  }
+
+  .top-contact-right {
+    display: none;
+  }
+}
   </style>
 </head>
 
