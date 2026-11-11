@@ -768,20 +768,25 @@ footer a:hover {
   ☎
 </a>
 
+
 <script>
 // MOBILE NAVIGATION
 
 const menuToggle = document.getElementById("menuToggle");
 const navLinks = document.getElementById("navLinks");
 
-menuToggle.addEventListener("click", function () {
-  navLinks.classList.toggle("open");
-});
+if (menuToggle && navLinks) {
+  menuToggle.addEventListener("click", function () {
+    navLinks.classList.toggle("open");
+  });
+}
+
 
 // FOOTER YEAR
 
 document.getElementById("year").textContent =
   new Date().getFullYear();
+
 
 // AUTOMATICALLY FILL FORM FROM URL
 
@@ -789,11 +794,19 @@ const enquiryParams = new URLSearchParams(window.location.search);
 
 const requestedDestination = enquiryParams.get("destination");
 const requestedHoliday = enquiryParams.get("holiday");
+const requestedDate = enquiryParams.get("departureDate");
+const requestedTravellers = enquiryParams.get("travellers");
+
+
+// FILL DESTINATION
 
 if (requestedDestination) {
   document.getElementById("destination").value =
     requestedDestination;
 }
+
+
+// FILL HOLIDAY TYPE
 
 if (requestedHoliday) {
   const holidayField = document.getElementById("holidayStyle");
@@ -810,21 +823,50 @@ if (requestedHoliday) {
   }
 }
 
+
+// FILL DEPARTURE DATE
+
+if (requestedDate) {
+  document.getElementById("departureDate").value =
+    requestedDate;
+}
+
+
+// FILL NUMBER OF TRAVELLERS
+
+if (requestedTravellers) {
+  const travellersField = document.getElementById("travellers");
+
+  const matchingTravellerOption = Array.from(
+    travellersField.options
+  ).find(option => option.value === requestedTravellers);
+
+  if (matchingTravellerOption) {
+    travellersField.value = requestedTravellers;
+  }
+}
+
+
 // SET RETURN DATE AFTER DEPARTURE DATE
 
 const departureDate = document.getElementById("departureDate");
 const returnDate = document.getElementById("returnDate");
 
-departureDate.addEventListener("change", function () {
-  returnDate.min = departureDate.value;
+if (departureDate && returnDate) {
+  returnDate.min = departureDate.value || "";
 
-  if (
-    returnDate.value &&
-    returnDate.value < departureDate.value
-  ) {
-    returnDate.value = "";
-  }
-});
+  departureDate.addEventListener("change", function () {
+    returnDate.min = departureDate.value;
+
+    if (
+      returnDate.value &&
+      returnDate.value < departureDate.value
+    ) {
+      returnDate.value = "";
+    }
+  });
+}
+
 
 // SEND ENQUIRY TO WHATSAPP
 
@@ -884,6 +926,7 @@ document.getElementById("holidayForm").addEventListener(
   }
 );
 </script>
+
 
 </body>
 </html>
