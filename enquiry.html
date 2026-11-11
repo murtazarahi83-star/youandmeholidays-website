@@ -1,0 +1,889 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Plan Your Holiday | You & Me Holidays</title>
+
+<meta name="description" content="Tell You & Me Holidays about your travel plans. Share your destination, dates, budget and preferences to request a personalised holiday quotation.">
+
+<style>
+:root {
+  --navy: #102b50;
+  --blue: #3198d5;
+  --light: #eef7fc;
+  --text: #26364a;
+  --muted: #68788b;
+  --border: #dce6ef;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  color: var(--text);
+  line-height: 1.6;
+  background: #f7faff;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.container {
+  width: min(1120px, 90%);
+  margin: auto;
+}
+
+/* TOP BAR */
+
+.announcement {
+  background: var(--navy);
+  color: white;
+  text-align: center;
+  padding: 8px 12px;
+  font-size: 13px;
+}
+
+/* HEADER */
+
+header {
+  background: white;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 3px 15px rgba(0,0,0,0.06);
+}
+
+.navbar {
+  min-height: 78px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  color: var(--navy);
+}
+
+.logo-icon {
+  width: 43px;
+  height: 43px;
+  background: var(--navy);
+  color: white;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-size: 23px;
+}
+
+.logo-text strong {
+  display: block;
+  font-size: 19px;
+  line-height: 1.2;
+}
+
+.logo-text small {
+  color: var(--blue);
+  font-size: 11px;
+  letter-spacing: 1px;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 27px;
+}
+
+.nav-links a {
+  color: var(--navy);
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  color: var(--blue);
+}
+
+.nav-cta {
+  background: var(--blue);
+  color: white !important;
+  padding: 11px 19px;
+  border-radius: 5px;
+}
+
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 27px;
+  color: var(--navy);
+  cursor: pointer;
+}
+
+/* HERO */
+
+.hero {
+  background:
+    linear-gradient(rgba(9,30,56,0.72), rgba(9,30,56,0.72)),
+    url("https://images.unsplash.com/photo-1488646953014-85cb44e25828?auto=format&fit=crop&w=1800&q=85")
+    center/cover no-repeat;
+  color: white;
+  text-align: center;
+  padding: 85px 15px;
+}
+
+.hero .eyebrow {
+  color: #a9ddff;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 13px;
+  font-weight: bold;
+  margin-bottom: 12px;
+}
+
+.hero h1 {
+  font-size: clamp(34px, 5vw, 52px);
+  line-height: 1.2;
+  margin-bottom: 15px;
+}
+
+.hero p {
+  max-width: 650px;
+  margin: auto;
+  color: #edf5fc;
+  font-size: 16px;
+}
+
+/* FORM SECTION */
+
+.form-section {
+  padding: 65px 0 85px;
+}
+
+.form-wrapper {
+  max-width: 900px;
+  margin: auto;
+  background: white;
+  padding: 42px;
+  border-radius: 12px;
+  box-shadow: 0 10px 40px rgba(16,43,80,0.07);
+}
+
+.form-heading {
+  text-align: center;
+  margin-bottom: 35px;
+}
+
+.form-heading .eyebrow {
+  color: var(--blue);
+  font-size: 13px;
+  font-weight: bold;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+.form-heading h2 {
+  color: var(--navy);
+  font-size: 31px;
+  margin: 8px 0;
+}
+
+.form-heading p {
+  color: var(--muted);
+}
+
+/* FORM FIELDS */
+
+.form-group {
+  margin-bottom: 22px;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+label {
+  display: block;
+  color: var(--navy);
+  font-weight: 700;
+  font-size: 14px;
+  margin-bottom: 8px;
+}
+
+.required {
+  color: #d33b3b;
+}
+
+input,
+select,
+textarea {
+  width: 100%;
+  padding: 13px 14px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  font-family: inherit;
+  font-size: 14px;
+  color: var(--text);
+  background: white;
+  outline: none;
+  transition: 0.2s;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: var(--blue);
+  box-shadow: 0 0 0 3px rgba(49,152,213,0.12);
+}
+
+textarea {
+  min-height: 125px;
+  resize: vertical;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: #9aa8b7;
+}
+
+.section-title {
+  color: var(--navy);
+  font-size: 19px;
+  margin: 32px 0 20px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--border);
+}
+
+.helper-text {
+  display: block;
+  color: var(--muted);
+  font-size: 12px;
+  margin-top: 6px;
+}
+
+.submit-btn {
+  width: 100%;
+  border: none;
+  background: var(--blue);
+  color: white;
+  padding: 16px;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: 0.3s;
+}
+
+.submit-btn:hover {
+  background: #207eb9;
+  transform: translateY(-2px);
+}
+
+.form-note {
+  color: var(--muted);
+  text-align: center;
+  font-size: 12px;
+  margin-top: 15px;
+}
+
+.trust-note {
+  text-align: center;
+  color: var(--muted);
+  font-size: 14px;
+  margin-top: 25px;
+}
+
+/* FOOTER */
+
+footer {
+  background: #091d36;
+  color: white;
+  padding: 45px 0 20px;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 35px;
+  margin-bottom: 30px;
+}
+
+footer h3 {
+  margin-bottom: 13px;
+}
+
+footer p,
+footer a {
+  color: #c5d3e2;
+  font-size: 14px;
+}
+
+footer a {
+  display: block;
+  margin-bottom: 8px;
+}
+
+footer a:hover {
+  color: white;
+}
+
+.footer-bottom {
+  border-top: 1px solid rgba(255,255,255,0.15);
+  padding-top: 18px;
+  text-align: center;
+  color: #aebed0;
+  font-size: 13px;
+}
+
+/* WHATSAPP */
+
+.whatsapp {
+  position: fixed;
+  right: 22px;
+  bottom: 22px;
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  background: #25d366;
+  color: white;
+  display: grid;
+  place-items: center;
+  font-size: 26px;
+  z-index: 999;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+/* MOBILE */
+
+@media (max-width: 800px) {
+  .menu-toggle {
+    display: block;
+  }
+
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 78px;
+    left: 0;
+    width: 100%;
+    background: white;
+    padding: 20px 5%;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 18px;
+    box-shadow: 0 10px 15px rgba(0,0,0,0.08);
+  }
+
+  .nav-links.open {
+    display: flex;
+  }
+
+  .form-wrapper {
+    padding: 25px 18px;
+  }
+
+  .form-grid {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+
+  .hero {
+    padding: 65px 15px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="announcement">
+  Your next journey starts with a simple enquiry
+</div>
+
+<header>
+  <div class="container navbar">
+
+    <a href="index.html" class="logo">
+      <span class="logo-icon">✈</span>
+      <span class="logo-text">
+        <strong>You & Me Holidays</strong>
+        <small>Your Journey, Our Passion.</small>
+      </span>
+    </a>
+
+    <button class="menu-toggle" id="menuToggle" aria-label="Open navigation">
+      ☰
+    </button>
+
+    <nav class="nav-links" id="navLinks">
+      <a href="index.html">Home</a>
+      <a href="destinations.html">Destinations</a>
+      <a href="offers.html">Offers</a>
+      <a href="about.html">About Us</a>
+      <a href="enquiry.html" class="nav-cta active">Enquire Now</a>
+    </nav>
+
+  </div>
+</header>
+
+<!-- HERO -->
+
+<section class="hero">
+  <div class="eyebrow">Let's plan something special</div>
+  <h1>Plan Your Perfect Holiday</h1>
+  <p>
+    Tell us a little about your travel plans.
+    We'll use your preferences to help explore suitable holiday options.
+  </p>
+</section>
+
+<!-- ENQUIRY FORM -->
+
+<section class="form-section">
+  <div class="container">
+
+    <div class="form-wrapper">
+
+      <div class="form-heading">
+        <div class="eyebrow">Holiday enquiry</div>
+        <h2>Tell Us About Your Trip</h2>
+        <p>Complete the details below to start planning your holiday.</p>
+      </div>
+
+      <form id="holidayForm">
+
+        <h3 class="section-title">1. Your Holiday</h3>
+
+        <div class="form-grid">
+
+          <div class="form-group">
+            <label for="destination">
+              Preferred Destination <span class="required">*</span>
+            </label>
+            <input
+              type="text"
+              id="destination"
+              name="destination"
+              placeholder="e.g. Dubai, Maldives, Italy"
+              required>
+          </div>
+
+          <div class="form-group">
+            <label for="holidayStyle">
+              Holiday Type <span class="required">*</span>
+            </label>
+            <select id="holidayStyle" name="holidayStyle" required>
+              <option value="">Select holiday type</option>
+              <option value="Luxury Holiday">Luxury Holiday</option>
+              <option value="Honeymoon">Honeymoon</option>
+              <option value="Family Holiday">Family Holiday</option>
+              <option value="Beach Holiday">Beach Holiday</option>
+              <option value="City Break">City Break</option>
+              <option value="Worldwide Holiday">Worldwide Holiday</option>
+              <option value="Tailor-Made Holiday">Tailor-Made Holiday</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+
+        </div>
+
+        <div class="form-grid">
+
+          <div class="form-group">
+            <label for="departureAirport">
+              Departure Airport
+            </label>
+            <input
+              type="text"
+              id="departureAirport"
+              name="departureAirport"
+              placeholder="e.g. London Heathrow">
+          </div>
+
+          <div class="form-group">
+            <label for="duration">Preferred Duration</label>
+            <select id="duration" name="duration">
+              <option value="">Select duration</option>
+              <option value="3–5 nights">3–5 nights</option>
+              <option value="6–7 nights">6–7 nights</option>
+              <option value="8–10 nights">8–10 nights</option>
+              <option value="11–14 nights">11–14 nights</option>
+              <option value="15+ nights">15+ nights</option>
+              <option value="Flexible">Flexible</option>
+            </select>
+          </div>
+
+        </div>
+
+        <div class="form-grid">
+
+          <div class="form-group">
+            <label for="departureDate">Preferred Departure Date</label>
+            <input
+              type="date"
+              id="departureDate"
+              name="departureDate">
+          </div>
+
+          <div class="form-group">
+            <label for="returnDate">Preferred Return Date</label>
+            <input
+              type="date"
+              id="returnDate"
+              name="returnDate">
+          </div>
+
+        </div>
+
+        <div class="form-grid">
+
+          <div class="form-group">
+            <label for="travellers">
+              Number of Travellers <span class="required">*</span>
+            </label>
+            <select id="travellers" name="travellers" required>
+              <option value="">Select travellers</option>
+              <option value="1">1 Traveller</option>
+              <option value="2">2 Travellers</option>
+              <option value="3">3 Travellers</option>
+              <option value="4">4 Travellers</option>
+              <option value="5">5 Travellers</option>
+              <option value="6">6 Travellers</option>
+              <option value="7">7 Travellers</option>
+              <option value="8+">8 or more Travellers</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="roomType">Preferred Accommodation</label>
+            <select id="roomType" name="roomType">
+              <option value="">No preference</option>
+              <option value="Standard Room">Standard Room</option>
+              <option value="Deluxe Room">Deluxe Room</option>
+              <option value="Sea View Room">Sea View Room</option>
+              <option value="Private Pool Villa">Private Pool Villa</option>
+              <option value="Overwater Villa">Overwater Villa</option>
+              <option value="Suite">Suite</option>
+              <option value="Flexible">Flexible</option>
+            </select>
+          </div>
+
+        </div>
+
+        <div class="form-grid">
+
+          <div class="form-group">
+            <label for="boardBasis">Meal Preference</label>
+            <select id="boardBasis" name="boardBasis">
+              <option value="">No preference</option>
+              <option value="Room Only">Room Only</option>
+              <option value="Bed & Breakfast">Bed & Breakfast</option>
+              <option value="Half Board">Half Board</option>
+              <option value="Full Board">Full Board</option>
+              <option value="All Inclusive">All Inclusive</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="budget">Estimated Budget Per Person</label>
+            <select id="budget" name="budget">
+              <option value="">Select your budget</option>
+              <option value="Under £500">Under £500</option>
+              <option value="£500–£1,000">£500–£1,000</option>
+              <option value="£1,000–£1,500">£1,000–£1,500</option>
+              <option value="£1,500–£2,000">£1,500–£2,000</option>
+              <option value="£2,000–£3,000">£2,000–£3,000</option>
+              <option value="£3,000–£5,000">£3,000–£5,000</option>
+              <option value="£5,000+">£5,000+</option>
+              <option value="Flexible">Flexible</option>
+            </select>
+          </div>
+
+        </div>
+
+        <h3 class="section-title">2. Your Contact Details</h3>
+
+        <div class="form-grid">
+
+          <div class="form-group">
+            <label for="fullName">
+              Full Name <span class="required">*</span>
+            </label>
+            <input
+              type="text"
+              id="fullName"
+              name="fullName"
+              placeholder="Enter your full name"
+              autocomplete="name"
+              required>
+          </div>
+
+          <div class="form-group">
+            <label for="email">
+              Email Address <span class="required">*</span>
+            </label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="you@example.com"
+              autocomplete="email"
+              required>
+          </div>
+
+        </div>
+
+        <div class="form-grid">
+
+          <div class="form-group">
+            <label for="phone">
+              Contact Number <span class="required">*</span>
+            </label>
+            <input
+              type="tel"
+              id="phone"
+              name="phone"
+              placeholder="Include country code"
+              autocomplete="tel"
+              required>
+          </div>
+
+          <div class="form-group">
+            <label for="contactMethod">Preferred Contact Method</label>
+            <select id="contactMethod" name="contactMethod">
+              <option value="WhatsApp">WhatsApp</option>
+              <option value="Phone Call">Phone Call</option>
+              <option value="Email">Email</option>
+            </select>
+          </div>
+
+        </div>
+
+        <h3 class="section-title">3. Additional Requirements</h3>
+
+        <div class="form-group">
+          <label for="flightPreference">Flight Preference</label>
+          <select id="flightPreference" name="flightPreference">
+            <option value="">No preference</option>
+            <option value="Direct Flights Only">Direct Flights Only</option>
+            <option value="One Stop is Acceptable">One Stop is Acceptable</option>
+            <option value="Best Available Option">Best Available Option</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="notes">Anything Else We Should Know?</label>
+          <textarea
+            id="notes"
+            name="notes"
+            placeholder="Tell us about special requests, celebrations, preferred hotels or anything important for your holiday..."></textarea>
+        </div>
+
+        <button type="submit" class="submit-btn">
+          Submit Holiday Enquiry via WhatsApp
+        </button>
+
+        <p class="form-note">
+          Your enquiry will open in WhatsApp so you can review and send it.
+          No booking or payment is made through this form.
+        </p>
+
+      </form>
+
+      <p class="trust-note">
+        ✈ Your Journey, Our Passion.
+      </p>
+
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+
+<footer>
+  <div class="container">
+
+    <div class="footer-grid">
+
+      <div>
+        <h3>You & Me Holidays</h3>
+        <p>
+          Your Journey, Our Passion.
+          Discover inspiring destinations and memorable holiday
+          experiences with us.
+        </p>
+      </div>
+
+      <div>
+        <h3>Quick Links</h3>
+        <a href="index.html">Home</a>
+        <a href="destinations.html">Destinations</a>
+        <a href="offers.html">Holiday Offers</a>
+        <a href="about.html">About Us</a>
+      </div>
+
+      <div>
+        <h3>Get in Touch</h3>
+        <a href="enquiry.html">Send an Enquiry</a>
+        <a href="https://wa.me/923498519613" target="_blank">
+          WhatsApp Us
+        </a>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      © <span id="year"></span> You & Me Holidays. All rights reserved.
+    </div>
+
+  </div>
+</footer>
+
+<a
+  class="whatsapp"
+  href="https://wa.me/923498519613"
+  target="_blank"
+  aria-label="Chat with us on WhatsApp">
+  ☎
+</a>
+
+<script>
+// MOBILE NAVIGATION
+
+const menuToggle = document.getElementById("menuToggle");
+const navLinks = document.getElementById("navLinks");
+
+menuToggle.addEventListener("click", function () {
+  navLinks.classList.toggle("open");
+});
+
+// FOOTER YEAR
+
+document.getElementById("year").textContent =
+  new Date().getFullYear();
+
+// AUTOMATICALLY FILL FORM FROM URL
+
+const enquiryParams = new URLSearchParams(window.location.search);
+
+const requestedDestination = enquiryParams.get("destination");
+const requestedHoliday = enquiryParams.get("holiday");
+
+if (requestedDestination) {
+  document.getElementById("destination").value =
+    requestedDestination;
+}
+
+if (requestedHoliday) {
+  const holidayField = document.getElementById("holidayStyle");
+
+  const matchingOption = Array.from(holidayField.options).find(
+    option =>
+      option.value.toLowerCase() === requestedHoliday.toLowerCase()
+  );
+
+  if (matchingOption) {
+    holidayField.value = matchingOption.value;
+  } else {
+    holidayField.value = "Other";
+  }
+}
+
+// SET RETURN DATE AFTER DEPARTURE DATE
+
+const departureDate = document.getElementById("departureDate");
+const returnDate = document.getElementById("returnDate");
+
+departureDate.addEventListener("change", function () {
+  returnDate.min = departureDate.value;
+
+  if (
+    returnDate.value &&
+    returnDate.value < departureDate.value
+  ) {
+    returnDate.value = "";
+  }
+});
+
+// SEND ENQUIRY TO WHATSAPP
+
+document.getElementById("holidayForm").addEventListener(
+  "submit",
+  function (event) {
+    event.preventDefault();
+
+    if (!this.reportValidity()) {
+      return;
+    }
+
+    const formData = new FormData(this);
+
+    const fields = [
+      ["Destination", "destination"],
+      ["Holiday Type", "holidayStyle"],
+      ["Departure Airport", "departureAirport"],
+      ["Duration", "duration"],
+      ["Departure Date", "departureDate"],
+      ["Return Date", "returnDate"],
+      ["Travellers", "travellers"],
+      ["Accommodation", "roomType"],
+      ["Meal Preference", "boardBasis"],
+      ["Budget Per Person", "budget"],
+      ["Full Name", "fullName"],
+      ["Email", "email"],
+      ["Contact Number", "phone"],
+      ["Preferred Contact Method", "contactMethod"],
+      ["Flight Preference", "flightPreference"],
+      ["Additional Requirements", "notes"]
+    ];
+
+    let message = "NEW HOLIDAY ENQUIRY\n";
+    message += "You & Me Holidays\n\n";
+
+    fields.forEach(function ([label, name]) {
+      const value = formData.get(name);
+
+      if (value && value.trim() !== "") {
+        message += label + ": " + value.trim() + "\n";
+      }
+    });
+
+    // Temporary WhatsApp contact number.
+    // Replace this number when your business number changes.
+
+    const whatsappNumber = "923498519613";
+
+    const whatsappURL =
+      "https://wa.me/" +
+      whatsappNumber +
+      "?text=" +
+      encodeURIComponent(message);
+
+    window.open(whatsappURL, "_blank");
+  }
+);
+</script>
+
+</body>
+</html>
