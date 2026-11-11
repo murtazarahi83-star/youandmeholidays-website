@@ -2,666 +2,717 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Discover You & Me Holidays. We help you plan memorable holidays with personalised travel experiences and dedicated support.">
-  <title>About Us | You & Me Holidays</title>
-
-  <style>
-    :root {
-      --navy: #092b50;
-      --blue: #168bd2;
-      --light-blue: #eaf6fd;
-      --white: #ffffff;
-      --text: #526174;
-      --heading: #102d4d;
-      --border: #e5edf4;
-    }
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: Arial, Helvetica, sans-serif;
-      color: var(--text);
-      line-height: 1.7;
-      background: var(--white);
-    }
-
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
-
-    .container {
-      width: 90%;
-      max-width: 1180px;
-      margin: auto;
-    }
-
-    .announcement {
-      background: var(--navy);
-      color: white;
-      text-align: center;
-      padding: 9px 15px;
-      font-size: 13px;
-    }
-
-    header {
-      background: white;
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      box-shadow: 0 3px 15px rgba(0,0,0,0.05);
-    }
-
-    .navbar {
-      min-height: 82px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 20px;
-    }
-
-    .logo {
-      display: flex;
-      align-items: center;
-      gap: 11px;
-      color: var(--navy);
-      font-size: 22px;
-      font-weight: 800;
-    }
-
-    .logo-icon {
-      width: 43px;
-      height: 43px;
-      display: grid;
-      place-items: center;
-      border-radius: 50%;
-      background: var(--light-blue);
-      color: var(--blue);
-      font-size: 23px;
-    }
-
-    .logo small {
-      display: block;
-      font-size: 10px;
-      letter-spacing: 1.5px;
-      color: var(--blue);
-      font-weight: 600;
-    }
-
-    nav {
-      display: flex;
-      align-items: center;
-      gap: 27px;
-      color: var(--navy);
-      font-size: 14px;
-      font-weight: 600;
-    }
-
-    nav a:hover,
-    nav a.active {
-      color: var(--blue);
-    }
-
-    .nav-cta {
-      background: var(--blue);
-      color: white !important;
-      padding: 12px 20px;
-      border-radius: 5px;
-    }
-
-    .menu-toggle {
-      display: none;
-      background: none;
-      border: 0;
-      color: var(--navy);
-      font-size: 27px;
-      cursor: pointer;
-    }
-
-    .page-hero {
-      min-height: 440px;
-      display: flex;
-      align-items: center;
-      background:
-        linear-gradient(90deg, rgba(5,28,53,0.88), rgba(5,28,53,0.35)),
-        url("https://images.unsplash.com/photo-1488646953014-85cb44e25828?auto=format&fit=crop&w=1900&q=85")
-        center/cover;
-      color: white;
-    }
-
-    .hero-content {
-      max-width: 720px;
-      padding: 75px 0;
-    }
-
-    .eyebrow {
-      color: #72c7ff;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      font-size: 12px;
-      font-weight: 700;
-      margin-bottom: 15px;
-    }
-
-    .page-hero h1 {
-      font-size: clamp(38px, 6vw, 60px);
-      line-height: 1.15;
-      margin-bottom: 20px;
-    }
-
-    .page-hero p {
-      max-width: 590px;
-      font-size: 17px;
-      color: #e4edf6;
-    }
-
-    .section {
-      padding: 85px 0;
-    }
-
-    .section-heading {
-      text-align: center;
-      max-width: 720px;
-      margin: 0 auto 45px;
-    }
-
-    .section-heading .eyebrow {
-      color: var(--blue);
-    }
-
-    h2 {
-      color: var(--heading);
-      font-size: clamp(29px, 4vw, 40px);
-      line-height: 1.25;
-      margin-bottom: 17px;
-    }
-
-    .section-heading p {
-      font-size: 16px;
-    }
-
-    .story-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      align-items: center;
-      gap: 55px;
-    }
-
-    .story-image {
-      min-height: 430px;
-      border-radius: 12px;
-      background:
-        url("https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?auto=format&fit=crop&w=1100&q=85")
-        center/cover;
-    }
-
-    .story-content .eyebrow {
-      color: var(--blue);
-    }
-
-    .story-content h2 {
-      margin-bottom: 20px;
-    }
-
-    .story-content p {
-      margin-bottom: 17px;
-    }
-
-    .mission-section {
-      background: var(--light-blue);
-    }
-
-    .mission-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 25px;
-    }
-
-    .mission-card {
-      background: white;
-      border-radius: 10px;
-      padding: 35px;
-      border: 1px solid var(--border);
-    }
-
-    .mission-icon {
-      width: 52px;
-      height: 52px;
-      display: grid;
-      place-items: center;
-      border-radius: 10px;
-      background: var(--light-blue);
-      color: var(--blue);
-      font-size: 25px;
-      margin-bottom: 20px;
-    }
-
-    .mission-card h3 {
-      color: var(--navy);
-      font-size: 22px;
-      margin-bottom: 12px;
-    }
-
-    .values-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 25px;
-    }
-
-    .value-card {
-      padding: 30px 25px;
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      text-align: center;
-      transition: transform 0.25s, box-shadow 0.25s;
-    }
-
-    .value-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 12px 30px rgba(9,43,80,0.08);
-    }
-
-    .value-card .mission-icon {
-      margin: 0 auto 18px;
-    }
-
-    .value-card h3 {
-      color: var(--navy);
-      margin-bottom: 10px;
-      font-size: 19px;
-    }
-
-    .cta-section {
-      padding: 75px 20px;
-      text-align: center;
-      background: var(--navy);
-      color: white;
-    }
-
-    .cta-section h2 {
-      color: white;
-      margin-bottom: 15px;
-    }
-
-    .cta-section p {
-      max-width: 650px;
-      margin: 0 auto 25px;
-      color: #d9e8f5;
-    }
-
-    .primary-btn {
-      display: inline-block;
-      background: var(--blue);
-      color: white;
-      padding: 14px 25px;
-      border-radius: 5px;
-      font-weight: 700;
-    }
-
-    .primary-btn:hover {
-      background: #0875b7;
-    }
-
-    footer {
-      background: #061d36;
-      color: #d5e1ed;
-      padding: 55px 0 20px;
-    }
-
-    .footer-grid {
-      display: grid;
-      grid-template-columns: 2fr 1fr 1fr;
-      gap: 40px;
-      margin-bottom: 35px;
-    }
-
-    footer h3 {
-      color: white;
-      margin-bottom: 15px;
-    }
-
-    footer p {
-      font-size: 14px;
-      max-width: 390px;
-    }
-
-    footer a {
-      display: block;
-      margin-bottom: 9px;
-      font-size: 14px;
-    }
-
-    footer a:hover {
-      color: #72c7ff;
-    }
-
-    .copyright {
-      border-top: 1px solid rgba(255,255,255,0.15);
-      padding-top: 20px;
-      text-align: center;
-      font-size: 13px;
-    }
-
-    .whatsapp {
-      position: fixed;
-      right: 22px;
-      bottom: 22px;
-      z-index: 200;
-      background: #20bd67;
-      color: white;
-      padding: 13px 19px;
-      border-radius: 30px;
-      font-size: 14px;
-      font-weight: 700;
-      box-shadow: 0 5px 18px rgba(0,0,0,0.2);
-    }
-
-    @media (max-width: 850px) {
-      .menu-toggle {
-        display: block;
-      }
-
-      nav {
-        display: none;
-        position: absolute;
-        top: 82px;
-        left: 0;
-        width: 100%;
-        background: white;
-        padding: 25px 5%;
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 18px;
-        box-shadow: 0 10px 15px rgba(0,0,0,0.08);
-      }
-
-      nav.open {
-        display: flex;
-      }
-
-      .story-grid {
-        grid-template-columns: 1fr;
-        gap: 30px;
-      }
-
-      .story-image {
-        min-height: 320px;
-      }
-
-      .values-grid {
-        grid-template-columns: 1fr 1fr;
-      }
-    }
-
-    @media (max-width: 600px) {
-      .section {
-        padding: 60px 0;
-      }
-
-      .mission-grid,
-      .values-grid,
-      .footer-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .page-hero {
-        min-height: 370px;
-      }
-
-      .logo {
-        font-size: 19px;
-      }
-
-      .whatsapp {
-        right: 13px;
-        bottom: 13px;
-      }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>About Us | You & Me Holidays</title>
+
+<meta name="description" content="Discover You & Me Holidays. We help travellers create memorable journeys with personalised holiday planning and carefully selected travel experiences.">
+
+<style>
+:root {
+  --navy: #102b50;
+  --blue: #3198d5;
+  --light: #eef7fc;
+  --white: #ffffff;
+  --text: #26364a;
+  --muted: #68788b;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  color: var(--text);
+  line-height: 1.7;
+  background: var(--white);
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.container {
+  width: min(1120px, 90%);
+  margin: auto;
+}
+
+/* ANNOUNCEMENT BAR */
+
+.announcement {
+  background: var(--navy);
+  color: white;
+  text-align: center;
+  padding: 8px 15px;
+  font-size: 13px;
+}
+
+/* HEADER */
+
+header {
+  background: white;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 3px 15px rgba(0,0,0,0.06);
+}
+
+.navbar {
+  min-height: 78px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  color: var(--navy);
+}
+
+.logo-icon {
+  width: 43px;
+  height: 43px;
+  background: var(--navy);
+  color: white;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-size: 23px;
+}
+
+.logo-text strong {
+  display: block;
+  font-size: 19px;
+  line-height: 1.2;
+}
+
+.logo-text small {
+  color: var(--blue);
+  font-size: 11px;
+  letter-spacing: 1px;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 27px;
+}
+
+.nav-links a {
+  color: var(--navy);
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  color: var(--blue);
+}
+
+.nav-cta {
+  background: var(--blue);
+  color: white !important;
+  padding: 11px 19px;
+  border-radius: 5px;
+}
+
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 27px;
+  color: var(--navy);
+  cursor: pointer;
+}
+
+/* HERO */
+
+.page-hero {
+  min-height: 440px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: white;
+  background:
+    linear-gradient(rgba(9, 30, 56, 0.68), rgba(9, 30, 56, 0.68)),
+    url("https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1800&q=85")
+    center/cover no-repeat;
+}
+
+.hero-content {
+  max-width: 760px;
+  margin: auto;
+  padding: 70px 15px;
+}
+
+.eyebrow {
+  color: #a9ddff;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 15px;
+}
+
+.page-hero h1 {
+  font-size: clamp(36px, 6vw, 58px);
+  line-height: 1.15;
+  margin-bottom: 20px;
+}
+
+.page-hero p {
+  font-size: 17px;
+  color: #edf5fc;
+}
+
+/* GENERAL SECTIONS */
+
+section {
+  padding: 85px 0;
+}
+
+.section-label {
+  color: var(--blue);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+h2 {
+  color: var(--navy);
+  font-size: clamp(28px, 4vw, 39px);
+  line-height: 1.25;
+  margin-bottom: 20px;
+}
+
+.section-description {
+  color: var(--muted);
+  max-width: 680px;
+}
+
+/* OUR STORY */
+
+.story-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 55px;
+}
+
+.story-image img {
+  width: 100%;
+  height: 440px;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+.story-content p {
+  color: var(--muted);
+  margin-bottom: 17px;
+}
+
+/* MISSION */
+
+.mission-section {
+  background: var(--light);
+}
+
+.mission-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 25px;
+  margin-top: 35px;
+}
+
+.mission-card {
+  background: white;
+  padding: 35px;
+  border-radius: 10px;
+  border: 1px solid #e4edf4;
+}
+
+.mission-icon {
+  font-size: 30px;
+  margin-bottom: 15px;
+}
+
+.mission-card h3 {
+  color: var(--navy);
+  font-size: 21px;
+  margin-bottom: 12px;
+}
+
+.mission-card p {
+  color: var(--muted);
+}
+
+/* WHY CHOOSE US */
+
+.benefit-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+  margin-top: 40px;
+}
+
+.benefit-card {
+  padding: 28px;
+  border: 1px solid #e6edf3;
+  border-radius: 9px;
+  transition: 0.3s;
+}
+
+.benefit-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 30px rgba(16,43,80,0.08);
+}
+
+.benefit-card .icon {
+  font-size: 29px;
+  margin-bottom: 15px;
+}
+
+.benefit-card h3 {
+  color: var(--navy);
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.benefit-card p {
+  color: var(--muted);
+  font-size: 14px;
+}
+
+/* CTA */
+
+.cta-section {
+  background: var(--navy);
+  color: white;
+  text-align: center;
+  padding: 75px 20px;
+}
+
+.cta-section h2 {
+  color: white;
+  max-width: 700px;
+  margin: 0 auto 15px;
+}
+
+.cta-section p {
+  color: #d4e4f3;
+  margin-bottom: 25px;
+}
+
+.btn {
+  display: inline-block;
+  background: var(--blue);
+  color: white;
+  padding: 13px 25px;
+  border-radius: 5px;
+  font-weight: 700;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  background: #207eb9;
+  transform: translateY(-2px);
+}
+
+/* FOOTER */
+
+footer {
+  background: #091d36;
+  color: white;
+  padding: 55px 0 20px;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 40px;
+  margin-bottom: 35px;
+}
+
+footer h3 {
+  margin-bottom: 15px;
+}
+
+footer p,
+footer a {
+  color: #c5d3e2;
+  font-size: 14px;
+}
+
+footer a {
+  display: block;
+  margin-bottom: 9px;
+}
+
+footer a:hover {
+  color: white;
+}
+
+.footer-bottom {
+  border-top: 1px solid rgba(255,255,255,0.15);
+  padding-top: 18px;
+  text-align: center;
+  color: #aebed0;
+  font-size: 13px;
+}
+
+/* WHATSAPP */
+
+.whatsapp {
+  position: fixed;
+  right: 22px;
+  bottom: 22px;
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  background: #25d366;
+  color: white;
+  display: grid;
+  place-items: center;
+  font-size: 26px;
+  z-index: 999;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+/* MOBILE */
+
+@media (max-width: 800px) {
+  .menu-toggle {
+    display: block;
+  }
+
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 78px;
+    left: 0;
+    width: 100%;
+    background: white;
+    padding: 20px 5%;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 18px;
+    box-shadow: 0 10px 15px rgba(0,0,0,0.08);
+  }
+
+  .nav-links.open {
+    display: flex;
+  }
+
+  .story-grid,
+  .mission-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .story-image img {
+    height: 320px;
+  }
+
+  .benefit-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+
+  section {
+    padding: 60px 0;
+  }
+}
+</style>
 </head>
 
 <body>
 
-  <div class="announcement">
-    Your next journey begins with us — Your Journey, Our Passion.
+<div class="announcement">
+  Discover the world with You & Me Holidays
+</div>
+
+<header>
+  <div class="container navbar">
+
+    <a href="index.html" class="logo">
+      <span class="logo-icon">✈</span>
+      <span class="logo-text">
+        <strong>You & Me Holidays</strong>
+        <small>Your Journey, Our Passion.</small>
+      </span>
+    </a>
+
+    <button class="menu-toggle" id="menuToggle" aria-label="Open navigation">
+      ☰
+    </button>
+
+    <nav class="nav-links" id="navLinks">
+      <a href="index.html">Home</a>
+      <a href="destinations.html">Destinations</a>
+      <a href="offers.html">Offers</a>
+      <a href="about.html" class="active">About Us</a>
+      <a href="enquiry.html" class="nav-cta">Enquire Now</a>
+    </nav>
+
   </div>
+</header>
 
-  <header>
-    <div class="container navbar">
+<!-- HERO -->
 
-      <a href="index.html" class="logo">
-        <span class="logo-icon">✈</span>
-        <span>
-          You &amp; Me Holidays
-          <small>YOUR JOURNEY, OUR PASSION</small>
-        </span>
-      </a>
+<section class="page-hero">
+  <div class="hero-content">
+    <div class="eyebrow">Get to know us</div>
+    <h1>Travel Means More When Every Journey Matters</h1>
+    <p>
+      At You & Me Holidays, we believe every journey should be
+      personal, memorable and thoughtfully planned.
+    </p>
+  </div>
+</section>
 
-      <button class="menu-toggle" id="menuToggle" aria-label="Open menu">☰</button>
+<!-- OUR STORY -->
 
-      <nav id="mainNav">
+<section>
+  <div class="container story-grid">
+
+    <div class="story-image">
+      <img
+        src="https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?auto=format&fit=crop&w=1000&q=85"
+        alt="Beautiful travel destination beside a lake">
+    </div>
+
+    <div class="story-content">
+      <div class="section-label">Our Story</div>
+      <h2>Making Your Travel Dreams a Reality</h2>
+
+      <p>
+        You & Me Holidays was created with a simple idea:
+        travel should be more than just reaching a destination.
+        It should be about the experiences, memories and moments
+        that make every journey special.
+      </p>
+
+      <p>
+        We aim to make holiday planning easier by helping travellers
+        explore destinations, discover suitable experiences and
+        find holiday options that match their individual preferences.
+      </p>
+
+      <p>
+        Whether you are planning a relaxing beach escape, a romantic
+        honeymoon, a family adventure or a luxury getaway, our goal
+        is to help you plan a journey worth remembering.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<!-- MISSION AND VISION -->
+
+<section class="mission-section">
+  <div class="container">
+
+    <div class="section-label">What drives us</div>
+    <h2>Our Mission & Vision</h2>
+
+    <p class="section-description">
+      We want to make discovering and planning your next holiday
+      a straightforward and enjoyable experience.
+    </p>
+
+    <div class="mission-grid">
+
+      <div class="mission-card">
+        <div class="mission-icon">🌍</div>
+        <h3>Our Mission</h3>
+        <p>
+          To help our customers discover memorable travel experiences
+          through personalised holiday planning, thoughtful service
+          and attention to their individual needs.
+        </p>
+      </div>
+
+      <div class="mission-card">
+        <div class="mission-icon">✈️</div>
+        <h3>Our Vision</h3>
+        <p>
+          To become a trusted choice for travellers seeking inspiring
+          destinations, quality holiday experiences and support
+          throughout their travel planning journey.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- WHY CHOOSE US -->
+
+<section>
+  <div class="container">
+
+    <div class="section-label">Why You & Me Holidays</div>
+    <h2>A More Personal Way to Plan Your Holiday</h2>
+
+    <p class="section-description">
+      Every traveller has different expectations. We focus on
+      understanding what matters to you before helping you explore
+      suitable holiday options.
+    </p>
+
+    <div class="benefit-grid">
+
+      <div class="benefit-card">
+        <div class="icon">🤝</div>
+        <h3>Personalised Service</h3>
+        <p>
+          We focus on your preferences, travel plans and expectations
+          when exploring suitable holiday experiences.
+        </p>
+      </div>
+
+      <div class="benefit-card">
+        <div class="icon">⭐</div>
+        <h3>Quality Experiences</h3>
+        <p>
+          From relaxing escapes to special celebrations, we help
+          you explore experiences that suit your travel style.
+        </p>
+      </div>
+
+      <div class="benefit-card">
+        <div class="icon">💬</div>
+        <h3>Clear Communication</h3>
+        <p>
+          We aim to make the enquiry and holiday planning process
+          simple, clear and convenient.
+        </p>
+      </div>
+
+      <div class="benefit-card">
+        <div class="icon">🏖️</div>
+        <h3>Worldwide Destinations</h3>
+        <p>
+          Discover inspiring holiday destinations across beaches,
+          cities, islands and beautiful landscapes.
+        </p>
+      </div>
+
+      <div class="benefit-card">
+        <div class="icon">❤️</div>
+        <h3>Memorable Moments</h3>
+        <p>
+          Whether travelling as a couple, family or group, we want
+          every journey to become a special memory.
+        </p>
+      </div>
+
+      <div class="benefit-card">
+        <div class="icon">🧳</div>
+        <h3>Tailor-Made Holidays</h3>
+        <p>
+          Explore holiday ideas based on your preferred destination,
+          dates, accommodation and travel requirements.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+
+<section class="cta-section">
+  <div class="container">
+    <h2>Your Next Great Journey Starts Here</h2>
+
+    <p>
+      Tell us what you have in mind, and let's start planning
+      your next holiday.
+    </p>
+
+    <a href="enquiry.html" class="btn">Plan Your Holiday</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+
+<footer>
+  <div class="container">
+
+    <div class="footer-grid">
+
+      <div>
+        <h3>You & Me Holidays</h3>
+        <p>
+          Your Journey, Our Passion.
+          Discover inspiring destinations and memorable holiday
+          experiences with us.
+        </p>
+      </div>
+
+      <div>
+        <h3>Quick Links</h3>
         <a href="index.html">Home</a>
         <a href="destinations.html">Destinations</a>
         <a href="offers.html">Holiday Offers</a>
-        <a href="about.html" class="active">About Us</a>
-        <a href="enquiry.html" class="nav-cta">Plan Your Holiday</a>
-      </nav>
-
-    </div>
-  </header>
-
-  <main>
-
-    <section class="page-hero">
-      <div class="container">
-        <div class="hero-content">
-          <div class="eyebrow">Get to know us</div>
-          <h1>Making Every Journey More Meaningful</h1>
-          <p>
-            At You &amp; Me Holidays, we believe every journey should be
-            special. We help turn your travel ideas into memorable
-            holiday experiences.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="container story-grid">
-
-        <div class="story-image"></div>
-
-        <div class="story-content">
-          <div class="eyebrow">Our Story</div>
-          <h2>Your Holiday Dreams Deserve Personal Attention</h2>
-
-          <p>
-            Every great holiday begins with an idea. It might be a
-            relaxing beach escape, a romantic honeymoon, a family
-            adventure or a journey to somewhere completely new.
-          </p>
-
-          <p>
-            You &amp; Me Holidays was created around a simple idea:
-            travel planning should feel personal, straightforward
-            and enjoyable.
-          </p>
-
-          <p>
-            We focus on understanding what matters to each traveller,
-            exploring suitable options and helping create holidays
-            that match their interests and expectations.
-          </p>
-
-          <p>
-            Because for us, it is not just about choosing a destination.
-            It is about helping you make memories along the way.
-          </p>
-        </div>
-
-      </div>
-    </section>
-
-    <section class="section mission-section">
-      <div class="container">
-
-        <div class="section-heading">
-          <div class="eyebrow">What drives us</div>
-          <h2>Our Mission &amp; Our Vision</h2>
-          <p>
-            We want every customer to feel confident and excited
-            about the journey ahead.
-          </p>
-        </div>
-
-        <div class="mission-grid">
-
-          <div class="mission-card">
-            <div class="mission-icon">✦</div>
-            <h3>Our Mission</h3>
-            <p>
-              To make holiday planning easier through personalised
-              travel options, thoughtful recommendations and
-              dedicated customer support.
-            </p>
-          </div>
-
-          <div class="mission-card">
-            <div class="mission-icon">◎</div>
-            <h3>Our Vision</h3>
-            <p>
-              To become a trusted choice for travellers looking
-              for memorable holidays, meaningful experiences
-              and a more personal approach to travel.
-            </p>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="container">
-
-        <div class="section-heading">
-          <div class="eyebrow">Why travel with us</div>
-          <h2>What Makes Us Different</h2>
-          <p>
-            We believe good travel planning starts with listening
-            and ends with an experience worth remembering.
-          </p>
-        </div>
-
-        <div class="values-grid">
-
-          <div class="value-card">
-            <div class="mission-icon">♡</div>
-            <h3>Personalised Planning</h3>
-            <p>
-              Holiday ideas and recommendations shaped around
-              your preferences and travel plans.
-            </p>
-          </div>
-
-          <div class="value-card">
-            <div class="mission-icon">✈</div>
-            <h3>Worldwide Inspiration</h3>
-            <p>
-              Explore beautiful destinations, relaxing escapes
-              and exciting experiences around the world.
-            </p>
-          </div>
-
-          <div class="value-card">
-            <div class="mission-icon">✓</div>
-            <h3>Dedicated Support</h3>
-            <p>
-              A helpful team ready to guide you through your
-              holiday enquiry and planning process.
-            </p>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-    <section class="cta-section">
-      <div class="container">
-        <h2>Let's Plan Your Next Adventure</h2>
-        <p>
-          Tell us where you would love to go. We will help you
-          explore the possibilities and find a holiday that
-          feels right for you.
-        </p>
-        <a href="enquiry.html" class="primary-btn">Start Your Enquiry</a>
-      </div>
-    </section>
-
-  </main>
-
-  <footer>
-    <div class="container">
-
-      <div class="footer-grid">
-
-        <div>
-          <h3>You &amp; Me Holidays</h3>
-          <p>
-            Your Journey, Our Passion. Discover inspiring
-            destinations and personalised holiday experiences
-            with us.
-          </p>
-        </div>
-
-        <div>
-          <h3>Quick Links</h3>
-          <a href="index.html">Home</a>
-          <a href="destinations.html">Destinations</a>
-          <a href="offers.html">Holiday Offers</a>
-          <a href="about.html">About Us</a>
-        </div>
-
-        <div>
-          <h3>Get in Touch</h3>
-          <a href="enquiry.html">Make an Enquiry</a>
-          <a href="https://wa.me/923498519613" target="_blank" rel="noopener">
-            WhatsApp Us
-          </a>
-        </div>
-
+        <a href="about.html">About Us</a>
       </div>
 
-      <div class="copyright">
-        © <span id="year"></span> You &amp; Me Holidays. All rights reserved.
+      <div>
+        <h3>Get in Touch</h3>
+        <a href="enquiry.html">Send an Enquiry</a>
+        <a href="https://wa.me/923498519613" target="_blank">
+          WhatsApp Us
+        </a>
       </div>
 
     </div>
-  </footer>
 
-  <a class="whatsapp"
-     href="https://wa.me/923498519613"
-     target="_blank"
-     rel="noopener">
-    WhatsApp Us
-  </a>
+    <div class="footer-bottom">
+      © <span id="year"></span> You & Me Holidays. All rights reserved.
+    </div>
 
-  <script>
-    const menuToggle = document.getElementById("menuToggle");
-    const mainNav = document.getElementById("mainNav");
+  </div>
+</footer>
 
-    menuToggle.addEventListener("click", function () {
-      mainNav.classList.toggle("open");
-    });
+<a
+  class="whatsapp"
+  href="https://wa.me/923498519613"
+  target="_blank"
+  aria-label="Chat with us on WhatsApp">
+  ☎
+</a>
 
-    document.getElementById("year").textContent =
-      new Date().getFullYear();
-  </script>
+<script>
+const menuToggle = document.getElementById("menuToggle");
+const navLinks = document.getElementById("navLinks");
+
+menuToggle.addEventListener("click", function () {
+  navLinks.classList.toggle("open");
+});
+
+document.getElementById("year").textContent =
+  new Date().getFullYear();
+</script>
 
 </body>
 </html>
