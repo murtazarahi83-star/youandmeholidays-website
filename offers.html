@@ -509,12 +509,75 @@ footer {
   object-fit: contain;
   display: block;
 }
+  /* TOP CONTACT BAR */
+
+.top-contact-bar {
+  background: var(--navy);
+  color: #ffffff;
+  font-size: 13px;
+}
+
+.top-contact-inner {
+  min-height: 38px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+}
+
+.top-contact-left {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.top-contact-bar a {
+  color: #ffffff;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.top-contact-bar a:hover {
+  color: #bfe6ff;
+}
+
+.top-contact-right {
+  color: #dceeff;
+}
+
+@media (max-width: 600px) {
+  .top-contact-inner {
+    justify-content: center;
+    padding: 9px 0;
+  }
+
+  .top-contact-left {
+    justify-content: center;
+    gap: 12px;
+  }
+
+  .top-contact-right {
+    display: none;
+  }
+}
 </style>
 </head>
 
 <body>
 
-
+<!-- TOP CONTACT BAR -->
+<div class="top-contact-bar">
+  <div class="container top-contact-inner">
+    <div class="top-contact-left">
+      <a href="https://wa.me/923498519613">☎ +92 3498519613</a>
+      <a href="mailto:murtazarahi83@gmail.com">✉ murtazarahi@gmail.com</a>
+    </div>
+    <div class="top-contact-right">
+      <span>Welcome to You & Me Holidays</span>
+    </div>
+  </div>
+</div>
 <!-- HEADER -->
 
 <header>
