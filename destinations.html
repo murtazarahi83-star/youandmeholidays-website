@@ -6,17 +6,21 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Explore Destinations | You & Me Holidays</title>
+
 <meta name="description" content="Explore beautiful worldwide holiday destinations with You & Me Holidays. Discover luxury escapes, romantic breaks and unforgettable adventures.">
+
 <meta name="theme-color" content="#0b1f40">
 
 <style>
 :root {
   --navy: #0b1f40;
   --blue: #168bd2;
-  --light: #f5f9fc;
+  --light-blue: #eaf5fc;
+  --white: #ffffff;
   --text: #26364a;
   --muted: #718096;
-  --white: #fff;
+  --border: #e6edf3;
+  --gold: #d7b46a;
 }
 
 * {
@@ -25,9 +29,14 @@
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: Arial, Helvetica, sans-serif;
   color: var(--text);
+  background: var(--white);
   line-height: 1.6;
 }
 
@@ -36,95 +45,168 @@ a {
   color: inherit;
 }
 
+img {
+  width: 100%;
+  display: block;
+  object-fit: cover;
+}
+
 .container {
   width: min(1180px, 90%);
   margin: auto;
 }
 
+/* ANNOUNCEMENT */
+
+.announcement {
+  background: var(--navy);
+  color: white;
+  text-align: center;
+  padding: 9px 15px;
+  font-size: 12px;
+  letter-spacing: 1px;
+}
+
+/* TOP CONTACT BAR */
+
+.top-contact-bar {
+  background: var(--navy);
+  color: #ffffff;
+  font-size: 13px;
+}
+
+.top-contact-inner {
+  min-height: 38px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+}
+
+.top-contact-left {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.top-contact-bar a {
+  color: #ffffff;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.top-contact-bar a:hover {
+  color: #bfe6ff;
+}
+
+.top-contact-right {
+  color: #dceeff;
+}
+
+/* HEADER - SAME AS HOMEPAGE */
+
 header {
+  background: #ffffff;
   position: sticky;
   top: 0;
   z-index: 1000;
-  background: white;
-  box-shadow: 0 3px 18px rgba(0,0,0,.06);
+  box-shadow: 0 3px 18px rgba(0, 0, 0, 0.06);
 }
 
 .navbar {
-  min-height: 82px;
+  min-height: 100px;
   display: flex;
-  align-items: center;
   justify-content: space-between;
-  gap: 20px;
+  align-items: center;
+  gap: 25px;
 }
+
+/* LOGO */
 
 .logo {
   display: flex;
   align-items: center;
-  gap: 10px;
-  color: var(--navy);
+  text-decoration: none;
+  flex-shrink: 0;
 }
 
-.logo-icon {
-  width: 46px;
-  height: 46px;
-  border: 2px solid var(--blue);
-  border-radius: 50%;
-  display: grid;
-  place-items: center;
-  color: var(--blue);
-  font-size: 23px;
+.logo-image {
+  width: 240px;
+  height: 82px;
+  object-fit: contain;
+  display: block;
 }
 
-.logo-name {
-  font-size: 20px;
-  font-weight: 800;
-}
-
-.logo-tagline {
-  font-size: 10px;
-  letter-spacing: 1px;
-  color: var(--muted);
-}
+/* NAVIGATION */
 
 .nav-links {
   display: flex;
   align-items: center;
+  justify-content: flex-end;
   gap: 25px;
   list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
 .nav-links a {
   font-size: 14px;
   font-weight: 600;
+  color: var(--navy);
+  text-decoration: none;
+  transition: 0.3s;
+  white-space: nowrap;
 }
 
 .nav-links a:hover {
   color: var(--blue);
 }
 
+/* HOLIDAY BUTTON */
+
 .nav-cta {
   background: var(--blue);
   color: white !important;
-  padding: 12px 20px;
+  padding: 13px 21px;
   border-radius: 5px;
+  display: inline-block;
+  transition: 0.3s;
 }
+
+.nav-cta:hover {
+  background: var(--navy);
+  color: white !important;
+}
+
+/* MOBILE MENU BUTTON */
 
 .menu-toggle {
   display: none;
   background: none;
   border: none;
   font-size: 27px;
-  cursor: pointer;
   color: var(--navy);
+  cursor: pointer;
 }
 
-/* HERO */
+/* PAGE HERO */
 
 .page-hero {
   background:
-    linear-gradient(rgba(5,22,48,.78),rgba(5,22,48,.58)),
+    linear-gradient(
+      rgba(5,22,48,.78),
+      rgba(5,22,48,.58)
+    ),
     url("https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1900&q=85")
-    center/cover;
+    center/cover no-repeat;
+
   min-height: 390px;
   display: flex;
   align-items: center;
@@ -139,7 +221,7 @@ header {
 }
 
 .eyebrow {
-  color: #d7b46a;
+  color: var(--gold);
   font-size: 12px;
   font-weight: 700;
   letter-spacing: 3px;
@@ -149,7 +231,7 @@ header {
 
 .page-hero h1 {
   font-family: Georgia, serif;
-  font-size: clamp(38px,5vw,60px);
+  font-size: clamp(38px, 5vw, 60px);
   font-weight: 500;
   line-height: 1.2;
   margin-bottom: 18px;
@@ -185,13 +267,13 @@ header {
 /* DESTINATIONS */
 
 .destinations {
-  background: var(--light);
+  background: #f5f9fc;
   padding: 35px 0 85px;
 }
 
 .destination-grid {
   display: grid;
-  grid-template-columns: repeat(4,1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 24px;
 }
 
@@ -251,13 +333,13 @@ header {
 /* CTA */
 
 .cta {
-  padding: 80px 0;
+  padding: 80px 20px;
   text-align: center;
   background: #eaf5fc;
 }
 
 .cta h2 {
-  font-family: Georgia,serif;
+  font-family: Georgia, serif;
   color: var(--navy);
   font-size: 38px;
   font-weight: 500;
@@ -277,558 +359,126 @@ header {
   border-radius: 5px;
   font-size: 14px;
   font-weight: 700;
+  transition: 0.3s;
 }
 
 .btn:hover {
   background: #0875b8;
+  transform: translateY(-2px);
 }
 
-/* FOOTER */
+/* FOOTER - SAME BRAND STYLE */
 
 footer {
-  background: #07172e;
-  color: white;
-  padding: 55px 0 20px;
+  background: #102b50;
+  color: #ffffff;
+  padding: 65px 0 25px;
 }
 
 .footer-grid {
   display: grid;
-  grid-template-columns: 2fr 1fr 1fr;
+  grid-template-columns: 1.7fr 1fr 1.2fr 1.3fr;
   gap: 35px;
-  margin-bottom: 35px;
+  margin-bottom: 45px;
+  align-items: start;
 }
 
-.footer-grid h3 {
-  margin-bottom: 16px;
-  font-size: 16px;
+.footer-brand .logo {
+  display: inline-flex;
+  margin-bottom: 5px;
 }
 
-.footer-grid p,
-.footer-grid a {
-  font-size: 13px;
-  color: #b7c4d4;
-}
-
-.footer-grid li {
-  list-style: none;
-  margin-bottom: 10px;
-}
-
-.footer-grid a:hover {
-  color: white;
-}
-
-.footer-bottom {
-  text-align: center;
-  border-top: 1px solid rgba(255,255,255,.12);
-  padding-top: 20px;
-  color: #aab8c9;
-  font-size: 12px;
-}
-
-/* WHATSAPP */
-
-.whatsapp {
-  position: fixed;
-  right: 22px;
-  bottom: 22px;
-  width: 55px;
-  height: 55px;
-  border-radius: 50%;
-  background: #25d366;
-  color: white;
-  display: grid;
-  place-items: center;
-  font-size: 25px;
-  z-index: 999;
-}
-
-/* MOBILE */
-
-@media(max-width:950px) {
-  .destination-grid {
-    grid-template-columns: repeat(2,1fr);
-  }
-}
-
-@media(max-width:650px) {
-  .navbar {
-    min-height: 72px;
-  }
-
-  .menu-toggle {
-    display: block;
-  }
-
-  .nav-links {
-    display: none;
-    position: absolute;
-    top: 72px;
-    left: 0;
-    width: 100%;
-    background: white;
-    padding: 18px 5%;
-    flex-direction: column;
-    align-items: stretch;
-    gap: 0;
-    box-shadow: 0 10px 15px rgba(0,0,0,.08);
-  }
-
-  .nav-links.active {
-    display: flex;
-  }
-
-  .nav-links li {
-    padding: 12px 0;
-  }
-
-  .nav-cta {
-    display: inline-block;
-    text-align: center;
-  }
-
-  .destination-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .page-hero {
-    min-height: 340px;
-  }
-
-  .intro h2,
-  .cta h2 {
-    font-size: 30px;
-  }
-
-  .footer-grid {
-    grid-template-columns: 1fr;
-    gap: 25px;
-  }
-}
-  /* INNER PAGE LOGO SIZE */
-
-.navbar .logo-image {
-  width: 165px !important;
-  height: 58px !important;
+.footer-logo-image {
+  width: 230px;
+  height: 75px;
   object-fit: contain;
   display: block;
 }
-  /* TOP CONTACT BAR */
 
-.top-contact-bar {
-  background: var(--navy);
+.footer-brand p {
+  color: #b7c4d4;
+  max-width: 350px;
+  font-size: 14px;
+  line-height: 1.8;
+  margin-top: 12px;
+}
+
+.footer-title {
+  font-size: 16px;
+  font-weight: 700;
   color: #ffffff;
-  font-size: 13px;
+  margin-bottom: 20px;
 }
 
-.top-contact-inner {
-  min-height: 38px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 15px;
-}
-
-.top-contact-left {
-  display: flex;
-  align-items: center;
-  gap: 24px;
-  flex-wrap: wrap;
-}
-
-.top-contact-bar a {
-  color: #ffffff;
-  text-decoration: none;
-  transition: 0.3s;
-}
-
-.top-contact-bar a:hover {
-  color: #bfe6ff;
-}
-
-.top-contact-right {
-  color: #dceeff;
-}
-
-@media (max-width: 600px) {
-  .top-contact-inner {
-    justify-content: center;
-    padding: 9px 0;
-  }
-
-  .top-contact-left {
-    justify-content: center;
-    gap: 12px;
-  }
-
-  .top-contact-right {
-    display: none;
-  }
-}
-</style>
-</head>
-
-<body>
-
-<!-- TOP CONTACT BAR -->
-<div class="top-contact-bar">
-  <div class="container top-contact-inner">
-    <div class="top-contact-left">
-      <a href="https://wa.me/923498519613">☎ +92 3498519613</a>
-     
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Explore Destinations | You & Me Holidays</title>
-<meta name="description" content="Explore beautiful worldwide holiday destinations with You & Me Holidays. Discover luxury escapes, romantic breaks and unforgettable adventures.">
-<meta name="theme-color" content="#0b1f40">
-
-<style>
-:root {
-  --navy: #0b1f40;
-  --blue: #168bd2;
-  --light: #f5f9fc;
-  --text: #26364a;
-  --muted: #718096;
-  --white: #fff;
-}
-
-* {
-  margin: 0;
+.footer-links {
+  list-style: none;
   padding: 0;
-  box-sizing: border-box;
+  margin: 0;
 }
 
-body {
-  font-family: Arial, Helvetica, sans-serif;
-  color: var(--text);
-  line-height: 1.6;
-}
-
-a {
-  text-decoration: none;
-  color: inherit;
-}
-
-.container {
-  width: min(1180px, 90%);
-  margin: auto;
-}
-
-header {
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  background: white;
-  box-shadow: 0 3px 18px rgba(0,0,0,.06);
-}
-
-.navbar {
-  min-height: 82px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 20px;
-}
-
-.logo {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  color: var(--navy);
-}
-
-.logo-icon {
-  width: 46px;
-  height: 46px;
-  border: 2px solid var(--blue);
-  border-radius: 50%;
-  display: grid;
-  place-items: center;
-  color: var(--blue);
-  font-size: 23px;
-}
-
-.logo-name {
-  font-size: 20px;
-  font-weight: 800;
-}
-
-.logo-tagline {
-  font-size: 10px;
-  letter-spacing: 1px;
-  color: var(--muted);
-}
-
-.nav-links {
-  display: flex;
-  align-items: center;
-  gap: 25px;
-  list-style: none;
-}
-
-.nav-links a {
+.footer-links li {
+  margin-bottom: 12px;
   font-size: 14px;
-  font-weight: 600;
-}
-
-.nav-links a:hover {
-  color: var(--blue);
-}
-
-.nav-cta {
-  background: var(--blue);
-  color: white !important;
-  padding: 12px 20px;
-  border-radius: 5px;
-}
-
-.menu-toggle {
-  display: none;
-  background: none;
-  border: none;
-  font-size: 27px;
-  cursor: pointer;
-  color: var(--navy);
-}
-
-/* HERO */
-
-.page-hero {
-  background:
-    linear-gradient(rgba(5,22,48,.78),rgba(5,22,48,.58)),
-    url("https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1900&q=85")
-    center/cover;
-  min-height: 390px;
-  display: flex;
-  align-items: center;
-  text-align: center;
-  color: white;
-}
-
-.hero-content {
-  max-width: 760px;
-  margin: auto;
-  padding: 80px 0;
-}
-
-.eyebrow {
-  color: #d7b46a;
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 3px;
-  margin-bottom: 15px;
-  text-transform: uppercase;
-}
-
-.page-hero h1 {
-  font-family: Georgia, serif;
-  font-size: clamp(38px,5vw,60px);
-  font-weight: 500;
-  line-height: 1.2;
-  margin-bottom: 18px;
-}
-
-.page-hero p {
-  font-size: 16px;
-  color: #e1eaf3;
-}
-
-/* INTRO */
-
-.intro {
-  text-align: center;
-  padding: 75px 0 55px;
-}
-
-.intro h2 {
-  font-family: Georgia, serif;
-  font-size: 38px;
-  color: var(--navy);
-  font-weight: 500;
-  margin-bottom: 15px;
-}
-
-.intro p {
-  color: var(--muted);
-  max-width: 720px;
-  margin: auto;
-  font-size: 15px;
-}
-
-/* DESTINATIONS */
-
-.destinations {
-  background: var(--light);
-  padding: 35px 0 85px;
-}
-
-.destination-grid {
-  display: grid;
-  grid-template-columns: repeat(4,1fr);
-  gap: 24px;
-}
-
-.destination-card {
-  background: white;
-  border-radius: 9px;
-  overflow: hidden;
-  box-shadow: 0 5px 22px rgba(0,0,0,.05);
-  transition: .3s;
-}
-
-.destination-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 12px 28px rgba(0,0,0,.10);
-}
-
-.destination-image {
-  height: 215px;
-  overflow: hidden;
-}
-
-.destination-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: .4s;
-}
-
-.destination-card:hover img {
-  transform: scale(1.07);
-}
-
-.destination-content {
-  padding: 21px;
-}
-
-.destination-content h3 {
-  color: var(--navy);
-  font-family: Georgia, serif;
-  font-size: 23px;
-  margin-bottom: 8px;
-}
-
-.destination-content p {
-  font-size: 13px;
-  color: var(--muted);
-  min-height: 63px;
-  margin-bottom: 15px;
-}
-
-.destination-content a {
-  color: var(--blue);
-  font-size: 13px;
-  font-weight: 700;
-}
-
-/* CTA */
-
-.cta {
-  padding: 80px 0;
-  text-align: center;
-  background: #eaf5fc;
-}
-
-.cta h2 {
-  font-family: Georgia,serif;
-  color: var(--navy);
-  font-size: 38px;
-  font-weight: 500;
-  margin-bottom: 14px;
-}
-
-.cta p {
-  color: var(--muted);
-  margin-bottom: 24px;
-}
-
-.btn {
-  display: inline-block;
-  background: var(--blue);
-  color: white;
-  padding: 14px 26px;
-  border-radius: 5px;
-  font-size: 14px;
-  font-weight: 700;
-}
-
-.btn:hover {
-  background: #0875b8;
-}
-
-/* FOOTER */
-
-footer {
-  background: #07172e;
-  color: white;
-  padding: 55px 0 20px;
-}
-
-.footer-grid {
-  display: grid;
-  grid-template-columns: 2fr 1fr 1fr;
-  gap: 35px;
-  margin-bottom: 35px;
-}
-
-.footer-grid h3 {
-  margin-bottom: 16px;
-  font-size: 16px;
-}
-
-.footer-grid p,
-.footer-grid a {
-  font-size: 13px;
   color: #b7c4d4;
 }
 
-.footer-grid li {
-  list-style: none;
-  margin-bottom: 10px;
+.footer-links a {
+  color: #b7c4d4;
+  text-decoration: none;
+  transition: 0.3s;
 }
 
-.footer-grid a:hover {
-  color: white;
+.footer-links a:hover {
+  color: #8bd4ff;
+  padding-left: 4px;
 }
 
 .footer-bottom {
+  border-top: 1px solid rgba(255,255,255,0.13);
+  padding-top: 22px;
   text-align: center;
-  border-top: 1px solid rgba(255,255,255,.12);
-  padding-top: 20px;
-  color: #aab8c9;
   font-size: 12px;
+  color: #aab8c9;
 }
 
 /* WHATSAPP */
 
-.whatsapp {
+.whatsapp-float {
   position: fixed;
-  right: 22px;
-  bottom: 22px;
-  width: 55px;
-  height: 55px;
-  border-radius: 50%;
+  bottom: 23px;
+  right: 23px;
+  z-index: 999;
+  width: 57px;
+  height: 57px;
   background: #25d366;
   color: white;
+  border-radius: 50%;
   display: grid;
   place-items: center;
-  font-size: 25px;
-  z-index: 999;
+  font-size: 28px;
+  box-shadow: 0 5px 18px rgba(0,0,0,0.2);
 }
 
-/* MOBILE */
+/* TABLET RESPONSIVE */
 
-@media(max-width:950px) {
+@media (max-width: 900px) {
   .destination-grid {
-    grid-template-columns: repeat(2,1fr);
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 35px;
+  }
+
+  .nav-links {
+    gap: 15px;
   }
 }
 
-@media(max-width:650px) {
+/* MOBILE RESPONSIVE */
+
+@media (max-width: 650px) {
   .navbar {
     min-height: 72px;
   }
@@ -844,11 +494,11 @@ footer {
     left: 0;
     width: 100%;
     background: white;
-    padding: 18px 5%;
     flex-direction: column;
     align-items: stretch;
+    padding: 20px 5%;
     gap: 0;
-    box-shadow: 0 10px 15px rgba(0,0,0,.08);
+    box-shadow: 0 10px 15px rgba(0,0,0,0.08);
   }
 
   .nav-links.active {
@@ -862,6 +512,20 @@ footer {
   .nav-cta {
     display: inline-block;
     text-align: center;
+  }
+
+  .top-contact-inner {
+    justify-content: center;
+    padding: 9px 0;
+  }
+
+  .top-contact-left {
+    justify-content: center;
+    gap: 12px;
+  }
+
+  .top-contact-right {
+    display: none;
   }
 
   .destination-grid {
@@ -879,67 +543,15 @@ footer {
 
   .footer-grid {
     grid-template-columns: 1fr;
-    gap: 25px;
-  }
-}
-  /* INNER PAGE LOGO SIZE */
-
-.navbar .logo-image {
-  width: 165px !important;
-  height: 58px !important;
-  object-fit: contain;
-  display: block;
-}
-  /* TOP CONTACT BAR */
-
-.top-contact-bar {
-  background: var(--navy);
-  color: #ffffff;
-  font-size: 13px;
-}
-
-.top-contact-inner {
-  min-height: 38px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 15px;
-}
-
-.top-contact-left {
-  display: flex;
-  align-items: center;
-  gap: 24px;
-  flex-wrap: wrap;
-}
-
-.top-contact-bar a {
-  color: #ffffff;
-  text-decoration: none;
-  transition: 0.3s;
-}
-
-.top-contact-bar a:hover {
-  color: #bfe6ff;
-}
-
-.top-contact-right {
-  color: #dceeff;
-}
-
-@media (max-width: 600px) {
-  .top-contact-inner {
-    justify-content: center;
-    padding: 9px 0;
+    gap: 30px;
   }
 
-  .top-contact-left {
-    justify-content: center;
-    gap: 12px;
+  footer {
+    padding: 45px 0 20px;
   }
 
-  .top-contact-right {
-    display: none;
+  .footer-logo-image {
+    width: 210px;
   }
 }
 </style>
@@ -947,18 +559,33 @@ footer {
 
 <body>
 
+<!-- ANNOUNCEMENT -->
+<div class="announcement">
+  DISCOVER THE WORLD WITH YOU & ME HOLIDAYS
+</div>
+
 <!-- TOP CONTACT BAR -->
 <div class="top-contact-bar">
   <div class="container top-contact-inner">
+
     <div class="top-contact-left">
-      <a href="https://wa.me/923498519613">☎ +92 3498519613</a>
-      <a href="mailto:murtazarahi83@gmail.com">✉ murtazarahi@gmail.com</a>
+      <a href="https://wa.me/923498519613">
+        ☎ +92 3498519613
+      </a>
+
+      <a href="mailto:murtazarahi83@gmail.com">
+        ✉ murtazarahi83@gmail.com
+      </a>
     </div>
+
     <div class="top-contact-right">
       <span>Welcome to You & Me Holidays</span>
     </div>
+
   </div>
 </div>
+
+<!-- HEADER -->
 <header>
   <div class="container navbar">
 
@@ -969,8 +596,11 @@ footer {
         class="logo-image">
     </a>
 
-    <button class="menu-toggle" id="menuToggle"
-      aria-label="Toggle navigation" aria-expanded="false">
+    <button
+      class="menu-toggle"
+      id="menuToggle"
+      aria-label="Toggle navigation"
+      aria-expanded="false">
       ☰
     </button>
 
@@ -979,37 +609,53 @@ footer {
       <li><a href="destinations.html">Destinations</a></li>
       <li><a href="offers.html">Holiday Offers</a></li>
       <li><a href="about.html">About Us</a></li>
-      <li><a href="enquiry.html" class="nav-cta">Plan Your Holiday</a></li>
+      <li>
+        <a href="enquiry.html" class="nav-cta">
+          Plan Your Holiday
+        </a>
+      </li>
     </ul>
 
   </div>
 </header>
 
-
+<!-- PAGE HERO -->
 <section class="page-hero">
   <div class="container hero-content">
+
     <div class="eyebrow">Explore The World</div>
+
     <h1>Discover Extraordinary Destinations</h1>
+
     <p>
       From tropical island escapes to iconic cities and
       breathtaking landscapes, your next adventure awaits.
     </p>
+
   </div>
 </section>
 
+<!-- INTRO -->
 <section class="intro">
   <div class="container">
-    <div class="eyebrow" style="color:#168bd2">Find Your Inspiration</div>
+
+    <div class="eyebrow" style="color:#168bd2">
+      Find Your Inspiration
+    </div>
+
     <h2>Where Will Your Journey Take You?</h2>
+
     <p>
       Explore destinations across the world and discover
       experiences that match your travel dreams. Whether you
       are planning a romantic escape, family adventure or
       luxury getaway, we can help you plan your journey.
     </p>
+
   </div>
 </section>
 
+<!-- DESTINATIONS -->
 <section class="destinations">
   <div class="container">
 
@@ -1018,96 +664,176 @@ footer {
       <!-- DUBAI -->
       <div class="destination-card">
         <div class="destination-image">
-          <img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=900&q=85" alt="Dubai">
+          <img
+            src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=900&q=85"
+            alt="Dubai">
         </div>
+
         <div class="destination-content">
           <h3>Dubai</h3>
-          <p>Experience iconic architecture, luxury resorts, desert adventures and unforgettable city experiences.</p>
-          <a href="offers.html?destination=Dubai">Explore Dubai Offers →</a>
+
+          <p>
+            Experience iconic architecture, luxury resorts,
+            desert adventures and unforgettable city experiences.
+          </p>
+
+          <a href="offers.html?destination=Dubai">
+            Explore Dubai Offers →
+          </a>
         </div>
       </div>
 
       <!-- MALDIVES -->
       <div class="destination-card">
         <div class="destination-image">
-          <img src="https://images.unsplash.com/photo-1514282401047-d79a71a590e8?auto=format&fit=crop&w=900&q=85" alt="Maldives">
+          <img
+            src="https://images.unsplash.com/photo-1514282401047-d79a71a590e8?auto=format&fit=crop&w=900&q=85"
+            alt="Maldives">
         </div>
+
         <div class="destination-content">
           <h3>Maldives</h3>
-          <p>Discover turquoise waters, private island resorts and beautiful overwater villa experiences.</p>
-          <a href="offers.html?destination=Maldives">Explore Maldives Offers →</a>
+
+          <p>
+            Discover turquoise waters, private island resorts
+            and beautiful overwater villa experiences.
+          </p>
+
+          <a href="offers.html?destination=Maldives">
+            Explore Maldives Offers →
+          </a>
         </div>
       </div>
 
       <!-- ITALY -->
       <div class="destination-card">
         <div class="destination-image">
-          <img src="https://images.unsplash.com/photo-1516483638261-f4dbaf036963?auto=format&fit=crop&w=900&q=85" alt="Italy">
+          <img
+            src="https://images.unsplash.com/photo-1516483638261-f4dbaf036963?auto=format&fit=crop&w=900&q=85"
+            alt="Italy">
         </div>
+
         <div class="destination-content">
           <h3>Italy</h3>
-          <p>Explore romantic coastal towns, historic cities, incredible cuisine and beautiful landscapes.</p>
-          <a href="offers.html?destination=Italy">Explore Italy Offers →</a>
+
+          <p>
+            Explore romantic coastal towns, historic cities,
+            incredible cuisine and beautiful landscapes.
+          </p>
+
+          <a href="offers.html?destination=Italy">
+            Explore Italy Offers →
+          </a>
         </div>
       </div>
 
       <!-- TURKEY -->
       <div class="destination-card">
         <div class="destination-image">
-          <img src="https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?auto=format&fit=crop&w=900&q=85" alt="Turkey">
+          <img
+            src="https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?auto=format&fit=crop&w=900&q=85"
+            alt="Turkey">
         </div>
+
         <div class="destination-content">
           <h3>Turkey</h3>
-          <p>Discover fascinating history, beautiful beaches, luxury resorts and vibrant culture.</p>
-          <a href="offers.html?destination=Turkey">Explore Turkey Offers →</a>
+
+          <p>
+            Discover fascinating history, beautiful beaches,
+            luxury resorts and vibrant culture.
+          </p>
+
+          <a href="offers.html?destination=Turkey">
+            Explore Turkey Offers →
+          </a>
         </div>
       </div>
 
       <!-- SWITZERLAND -->
       <div class="destination-card">
         <div class="destination-image">
-          <img src="https://images.unsplash.com/photo-1531366936337-7c912a4589a7?auto=format&fit=crop&w=900&q=85" alt="Switzerland">
+          <img
+            src="https://images.unsplash.com/photo-1531366936337-7c912a4589a7?auto=format&fit=crop&w=900&q=85"
+            alt="Switzerland">
         </div>
+
         <div class="destination-content">
           <h3>Switzerland</h3>
-          <p>Enjoy spectacular mountains, picturesque villages, scenic rail journeys and peaceful escapes.</p>
-          <a href="offers.html?destination=Switzerland">Explore Switzerland Offers →</a>
+
+          <p>
+            Enjoy spectacular mountains, picturesque villages,
+            scenic rail journeys and peaceful escapes.
+          </p>
+
+          <a href="offers.html?destination=Switzerland">
+            Explore Switzerland Offers →
+          </a>
         </div>
       </div>
 
       <!-- THAILAND -->
       <div class="destination-card">
         <div class="destination-image">
-          <img src="https://images.unsplash.com/photo-1528181304800-259b08848526?auto=format&fit=crop&w=900&q=85" alt="Thailand">
+          <img
+            src="https://images.unsplash.com/photo-1528181304800-259b08848526?auto=format&fit=crop&w=900&q=85"
+            alt="Thailand">
         </div>
+
         <div class="destination-content">
           <h3>Thailand</h3>
-          <p>Experience tropical beaches, beautiful islands, lively cities and unforgettable adventures.</p>
-          <a href="offers.html?destination=Thailand">Explore Thailand Offers →</a>
+
+          <p>
+            Experience tropical beaches, beautiful islands,
+            lively cities and unforgettable adventures.
+          </p>
+
+          <a href="offers.html?destination=Thailand">
+            Explore Thailand Offers →
+          </a>
         </div>
       </div>
 
       <!-- BALI -->
       <div class="destination-card">
         <div class="destination-image">
-          <img src="https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=900&q=85" alt="Bali">
+          <img
+            src="https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=900&q=85"
+            alt="Bali">
         </div>
+
         <div class="destination-content">
           <h3>Bali</h3>
-          <p>Escape to tropical landscapes, private villas, beautiful beaches and peaceful retreats.</p>
-          <a href="offers.html?destination=Bali">Explore Bali Offers →</a>
+
+          <p>
+            Escape to tropical landscapes, private villas,
+            beautiful beaches and peaceful retreats.
+          </p>
+
+          <a href="offers.html?destination=Bali">
+            Explore Bali Offers →
+          </a>
         </div>
       </div>
 
       <!-- MAURITIUS -->
       <div class="destination-card">
         <div class="destination-image">
-          <img src="https://images.unsplash.com/photo-1518509562904-e7ef99cdcc86?auto=format&fit=crop&w=900&q=85" alt="Mauritius">
+          <img
+            src="https://images.unsplash.com/photo-1518509562904-e7ef99cdcc86?auto=format&fit=crop&w=900&q=85"
+            alt="Mauritius">
         </div>
+
         <div class="destination-content">
           <h3>Mauritius</h3>
-          <p>Discover beautiful beaches, tropical resorts, crystal-clear lagoons and island luxury.</p>
-          <a href="offers.html?destination=Mauritius">Explore Mauritius Offers →</a>
+
+          <p>
+            Discover beautiful beaches, tropical resorts,
+            crystal-clear lagoons and island luxury.
+          </p>
+
+          <a href="offers.html?destination=Mauritius">
+            Explore Mauritius Offers →
+          </a>
         </div>
       </div>
 
@@ -1115,295 +841,147 @@ footer {
   </div>
 </section>
 
+<!-- CALL TO ACTION -->
 <section class="cta">
   <div class="container">
-    <div class="eyebrow" style="color:#168bd2">Let's Plan Something Special</div>
+
+    <div class="eyebrow" style="color:#168bd2">
+      Let's Plan Something Special
+    </div>
+
     <h2>Your Dream Destination Is Waiting</h2>
-    <p>Tell us where you want to go. We'll help you plan the journey.</p>
-    <a href="enquiry.html" class="btn">Plan Your Holiday</a>
-  </div>
-</section>
 
-<footer>
-  <div class="container">
+    <p>
+      Tell us where you want to go. We'll help you plan the journey.
+    </p>
 
-    <div class="footer-grid">
-
-      <div>
-        <h3>You & Me Holidays</h3>
-        <p>Your Journey, Our Passion. Discover inspiring destinations and personalised travel experiences with us.</p>
-      </div>
-
-      <div>
-        <h3>Quick Links</h3>
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="destinations.html">Destinations</a></li>
-          <li><a href="offers.html">Holiday Offers</a></li>
-          <li><a href="about.html">About Us</a></li>
-        </ul>
-      </div>
-
-      <div>
-        <h3>Contact</h3>
-        <ul>
-          <li><a href="https://wa.me/923498519613">WhatsApp: +92 349 851 9613</a></li>
-          <li><a href="enquiry.html">Send an Enquiry</a></li>
-        </ul>
-      </div>
-
-    </div>
-
-    <div class="footer-bottom">
-      © <span id="year"></span> You & Me Holidays. All Rights Reserved.
-    </div>
-
-  </div>
-</footer>
-
-<a class="whatsapp"
-  href="https://wa.me/923498519613?text=Hello%20You%20%26%20Me%20Holidays"
-  target="_blank" aria-label="WhatsApp">☎</a>
-
-<script>
-const menuToggle = document.getElementById("menuToggle");
-const navLinks = document.getElementById("navLinks");
-
-menuToggle.addEventListener("click", () => {
-  navLinks.classList.toggle("active");
-
-  const isOpen = navLinks.classList.contains("active");
-
-  menuToggle.setAttribute("aria-expanded", isOpen);
-  menuToggle.textContent = isOpen ? "✕" : "☰";
-});
-
-document.querySelectorAll(".nav-links a").forEach(link => {
-  link.addEventListener("click", () => {
-    navLinks.classList.remove("active");
-    menuToggle.setAttribute("aria-expanded", "false");
-    menuToggle.textContent = "☰";
-  });
-});
-
-document.getElementById("year").textContent =
-  new Date().getFullYear();
-</script>
-
-</body>
-</html>
-    </div>
-    <div class="top-contact-right">
-      <span>Welcome to You & Me Holidays</span>
-    </div>
-  </div>
-</div>
-<header>
-  <div class="container navbar">
-
-    <a href="index.html" class="logo">
-      <img
-        src="youandme-logo.png"
-        alt="You & Me Holidays - Your Journey, Our Passion"
-        class="logo-image">
+    <a href="enquiry.html" class="btn">
+      Plan Your Holiday
     </a>
 
-    <button class="menu-toggle" id="menuToggle"
-      aria-label="Toggle navigation" aria-expanded="false">
-      ☰
-    </button>
-
-    <ul class="nav-links" id="navLinks">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="destinations.html">Destinations</a></li>
-      <li><a href="offers.html">Holiday Offers</a></li>
-      <li><a href="about.html">About Us</a></li>
-      <li><a href="enquiry.html" class="nav-cta">Plan Your Holiday</a></li>
-    </ul>
-
-  </div>
-</header>
-
-
-<section class="page-hero">
-  <div class="container hero-content">
-    <div class="eyebrow">Explore The World</div>
-    <h1>Discover Extraordinary Destinations</h1>
-    <p>
-      From tropical island escapes to iconic cities and
-      breathtaking landscapes, your next adventure awaits.
-    </p>
   </div>
 </section>
 
-<section class="intro">
-  <div class="container">
-    <div class="eyebrow" style="color:#168bd2">Find Your Inspiration</div>
-    <h2>Where Will Your Journey Take You?</h2>
-    <p>
-      Explore destinations across the world and discover
-      experiences that match your travel dreams. Whether you
-      are planning a romantic escape, family adventure or
-      luxury getaway, we can help you plan your journey.
-    </p>
-  </div>
-</section>
-
-<section class="destinations">
-  <div class="container">
-
-    <div class="destination-grid">
-
-      <!-- DUBAI -->
-      <div class="destination-card">
-        <div class="destination-image">
-          <img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=900&q=85" alt="Dubai">
-        </div>
-        <div class="destination-content">
-          <h3>Dubai</h3>
-          <p>Experience iconic architecture, luxury resorts, desert adventures and unforgettable city experiences.</p>
-          <a href="offers.html?destination=Dubai">Explore Dubai Offers →</a>
-        </div>
-      </div>
-
-      <!-- MALDIVES -->
-      <div class="destination-card">
-        <div class="destination-image">
-          <img src="https://images.unsplash.com/photo-1514282401047-d79a71a590e8?auto=format&fit=crop&w=900&q=85" alt="Maldives">
-        </div>
-        <div class="destination-content">
-          <h3>Maldives</h3>
-          <p>Discover turquoise waters, private island resorts and beautiful overwater villa experiences.</p>
-          <a href="offers.html?destination=Maldives">Explore Maldives Offers →</a>
-        </div>
-      </div>
-
-      <!-- ITALY -->
-      <div class="destination-card">
-        <div class="destination-image">
-          <img src="https://images.unsplash.com/photo-1516483638261-f4dbaf036963?auto=format&fit=crop&w=900&q=85" alt="Italy">
-        </div>
-        <div class="destination-content">
-          <h3>Italy</h3>
-          <p>Explore romantic coastal towns, historic cities, incredible cuisine and beautiful landscapes.</p>
-          <a href="offers.html?destination=Italy">Explore Italy Offers →</a>
-        </div>
-      </div>
-
-      <!-- TURKEY -->
-      <div class="destination-card">
-        <div class="destination-image">
-          <img src="https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?auto=format&fit=crop&w=900&q=85" alt="Turkey">
-        </div>
-        <div class="destination-content">
-          <h3>Turkey</h3>
-          <p>Discover fascinating history, beautiful beaches, luxury resorts and vibrant culture.</p>
-          <a href="offers.html?destination=Turkey">Explore Turkey Offers →</a>
-        </div>
-      </div>
-
-      <!-- SWITZERLAND -->
-      <div class="destination-card">
-        <div class="destination-image">
-          <img src="https://images.unsplash.com/photo-1531366936337-7c912a4589a7?auto=format&fit=crop&w=900&q=85" alt="Switzerland">
-        </div>
-        <div class="destination-content">
-          <h3>Switzerland</h3>
-          <p>Enjoy spectacular mountains, picturesque villages, scenic rail journeys and peaceful escapes.</p>
-          <a href="offers.html?destination=Switzerland">Explore Switzerland Offers →</a>
-        </div>
-      </div>
-
-      <!-- THAILAND -->
-      <div class="destination-card">
-        <div class="destination-image">
-          <img src="https://images.unsplash.com/photo-1528181304800-259b08848526?auto=format&fit=crop&w=900&q=85" alt="Thailand">
-        </div>
-        <div class="destination-content">
-          <h3>Thailand</h3>
-          <p>Experience tropical beaches, beautiful islands, lively cities and unforgettable adventures.</p>
-          <a href="offers.html?destination=Thailand">Explore Thailand Offers →</a>
-        </div>
-      </div>
-
-      <!-- BALI -->
-      <div class="destination-card">
-        <div class="destination-image">
-          <img src="https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=900&q=85" alt="Bali">
-        </div>
-        <div class="destination-content">
-          <h3>Bali</h3>
-          <p>Escape to tropical landscapes, private villas, beautiful beaches and peaceful retreats.</p>
-          <a href="offers.html?destination=Bali">Explore Bali Offers →</a>
-        </div>
-      </div>
-
-      <!-- MAURITIUS -->
-      <div class="destination-card">
-        <div class="destination-image">
-          <img src="https://images.unsplash.com/photo-1518509562904-e7ef99cdcc86?auto=format&fit=crop&w=900&q=85" alt="Mauritius">
-        </div>
-        <div class="destination-content">
-          <h3>Mauritius</h3>
-          <p>Discover beautiful beaches, tropical resorts, crystal-clear lagoons and island luxury.</p>
-          <a href="offers.html?destination=Mauritius">Explore Mauritius Offers →</a>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<section class="cta">
-  <div class="container">
-    <div class="eyebrow" style="color:#168bd2">Let's Plan Something Special</div>
-    <h2>Your Dream Destination Is Waiting</h2>
-    <p>Tell us where you want to go. We'll help you plan the journey.</p>
-    <a href="enquiry.html" class="btn">Plan Your Holiday</a>
-  </div>
-</section>
-
+<!-- FOOTER -->
 <footer>
   <div class="container">
 
     <div class="footer-grid">
 
-      <div>
-        <h3>You & Me Holidays</h3>
-        <p>Your Journey, Our Passion. Discover inspiring destinations and personalised travel experiences with us.</p>
+      <!-- BRAND -->
+      <div class="footer-brand">
+
+        <a href="index.html" class="logo">
+          <img
+            src="youandme-logo.png"
+            alt="You & Me Holidays"
+            class="footer-logo-image">
+        </a>
+
+        <p>
+          Discover the world with You & Me Holidays.
+          From luxury escapes to unforgettable adventures,
+          we create personalised travel experiences
+          designed around you.
+        </p>
+
       </div>
 
+      <!-- QUICK LINKS -->
       <div>
-        <h3>Quick Links</h3>
-        <ul>
+        <h3 class="footer-title">Explore</h3>
+
+        <ul class="footer-links">
           <li><a href="index.html">Home</a></li>
           <li><a href="destinations.html">Destinations</a></li>
           <li><a href="offers.html">Holiday Offers</a></li>
           <li><a href="about.html">About Us</a></li>
+          <li><a href="enquiry.html">Plan Your Holiday</a></li>
         </ul>
       </div>
 
+      <!-- HOLIDAY EXPERIENCES -->
       <div>
-        <h3>Contact</h3>
-        <ul>
-          <li><a href="https://wa.me/923498519613">WhatsApp: +92 349 851 9613</a></li>
-          <li><a href="enquiry.html">Send an Enquiry</a></li>
+        <h3 class="footer-title">Our Holidays</h3>
+
+        <ul class="footer-links">
+          <li>
+            <a href="offers.html?holiday=Luxury%20Holiday">
+              Luxury Holidays
+            </a>
+          </li>
+
+          <li>
+            <a href="offers.html?holiday=Honeymoon">
+              Honeymoon Holidays
+            </a>
+          </li>
+
+          <li>
+            <a href="offers.html?holiday=Family%20Holiday">
+              Family Holidays
+            </a>
+          </li>
+
+          <li>
+            <a href="offers.html?holiday=Beach%20Holiday">
+              Beach Holidays
+            </a>
+          </li>
+
+          <li>
+            <a href="offers.html?holiday=Tailor-Made%20Holiday">
+              Tailor-Made Holidays
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- CONTACT -->
+      <div>
+        <h3 class="footer-title">Get In Touch</h3>
+
+        <ul class="footer-links">
+          <li>
+            <a href="https://wa.me/923498519613" target="_blank">
+              WhatsApp: +92 349 851 9613
+            </a>
+          </li>
+
+          <li>
+            <a href="mailto:murtazarahi83@gmail.com">
+              Email Us
+            </a>
+          </li>
+
+          <li>
+            <a href="enquiry.html">
+              Send an Enquiry
+            </a>
+          </li>
         </ul>
       </div>
 
     </div>
 
     <div class="footer-bottom">
-      © <span id="year"></span> You & Me Holidays. All Rights Reserved.
+      © <span id="year"></span> You & Me Holidays.
+      All Rights Reserved.
     </div>
 
   </div>
 </footer>
 
-<a class="whatsapp"
+<!-- WHATSAPP BUTTON -->
+<a
+  class="whatsapp-float"
   href="https://wa.me/923498519613?text=Hello%20You%20%26%20Me%20Holidays"
-  target="_blank" aria-label="WhatsApp">☎</a>
+  target="_blank"
+  aria-label="Chat with us on WhatsApp">
+  ☎
+</a>
 
+<!-- JAVASCRIPT -->
 <script>
 const menuToggle = document.getElementById("menuToggle");
 const navLinks = document.getElementById("navLinks");
