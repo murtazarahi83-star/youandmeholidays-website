@@ -49,51 +49,71 @@ img {
   margin: auto;
 }
 
+/* TOP CONTACT BAR */
+
+.top-contact-bar {
+  background: var(--navy);
+  color: #ffffff;
+  font-size: 13px;
+}
+
+.top-contact-inner {
+  min-height: 38px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+}
+
+.top-contact-left {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.top-contact-bar a {
+  color: #ffffff;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.top-contact-bar a:hover {
+  color: #bfe6ff;
+}
+
+.top-contact-right {
+  color: #dceeff;
+}
+
 /* HEADER */
 
 header {
+  background: #ffffff;
   position: sticky;
   top: 0;
   z-index: 1000;
-  background: white;
-  box-shadow: 0 3px 18px rgba(0,0,0,.06);
+  box-shadow: 0 3px 18px rgba(0, 0, 0, 0.06);
 }
 
 .navbar {
-  min-height: 82px;
+  min-height: 100px;
   display: flex;
-  align-items: center;
   justify-content: space-between;
-  gap: 20px;
+  align-items: center;
+  gap: 25px;
 }
 
 .logo {
   display: flex;
   align-items: center;
-  gap: 10px;
-  color: var(--navy);
 }
 
-.logo-icon {
-  width: 46px;
-  height: 46px;
-  border: 2px solid var(--blue);
-  border-radius: 50%;
-  display: grid;
-  place-items: center;
-  color: var(--blue);
-  font-size: 23px;
-}
-
-.logo-name {
-  font-size: 20px;
-  font-weight: 800;
-}
-
-.logo-tagline {
-  font-size: 10px;
-  letter-spacing: 1px;
-  color: var(--muted);
+.logo-image {
+  width: 240px;
+  height: 82px;
+  object-fit: contain;
+  display: block;
 }
 
 .nav-links {
@@ -106,6 +126,7 @@ header {
 .nav-links a {
   font-size: 14px;
   font-weight: 600;
+  color: var(--navy);
 }
 
 .nav-links a:hover {
@@ -115,7 +136,7 @@ header {
 .nav-cta {
   background: var(--blue);
   color: white !important;
-  padding: 12px 20px;
+  padding: 13px 21px;
   border-radius: 5px;
 }
 
@@ -447,8 +468,28 @@ footer {
 }
 
 @media(max-width:650px) {
+
+  .top-contact-inner {
+    justify-content: center;
+    padding: 9px 0;
+  }
+
+  .top-contact-left {
+    justify-content: center;
+    gap: 12px;
+  }
+
+  .top-contact-right {
+    display: none;
+  }
+
   .navbar {
     min-height: 72px;
+  }
+
+  .logo-image {
+    width: 200px;
+    height: 68px;
   }
 
   .menu-toggle {
@@ -501,73 +542,13 @@ footer {
     gap: 25px;
   }
 }
-  /* INNER PAGE LOGO SIZE */
-
-.navbar .logo-image {
-  width: 165px !important;
-  height: 58px !important;
-  object-fit: contain;
-  display: block;
-}
-  /* TOP CONTACT BAR */
-
-.top-contact-bar {
-  background: var(--navy);
-  color: #ffffff;
-  font-size: 13px;
-}
-
-.top-contact-inner {
-  min-height: 38px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 15px;
-}
-
-.top-contact-left {
-  display: flex;
-  align-items: center;
-  gap: 24px;
-  flex-wrap: wrap;
-}
-
-.top-contact-bar a {
-  color: #ffffff;
-  text-decoration: none;
-  transition: 0.3s;
-}
-
-.top-contact-bar a:hover {
-  color: #bfe6ff;
-}
-
-.top-contact-right {
-  color: #dceeff;
-}
-
-@media (max-width: 600px) {
-  .top-contact-inner {
-    justify-content: center;
-    padding: 9px 0;
-  }
-
-  .top-contact-left {
-    justify-content: center;
-    gap: 12px;
-  }
-
-  .top-contact-right {
-    display: none;
-  }
-}
 </style>
 </head>
 
 <body>
 
-
 <!-- TOP CONTACT BAR -->
+
 <div class="top-contact-bar">
   <div class="container top-contact-inner">
     <div class="top-contact-left">
@@ -607,7 +588,6 @@ footer {
 
   </div>
 </header>
-
 
 <!-- HERO -->
 
